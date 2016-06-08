@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TestApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta content="telephone=no" name="format-detection"/>
+  <link rel="stylesheet" type="text/css" href="../dist/css/number-spinner.css"/>
+  <style type="text/css">
+    body {
+      font-family: 'STHeiti', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+    }
+
+    [ng-cloak] {
+      display: none;
+    }
+
+    .header [data-active] {
+      cursor: pointer;
+      display: inline-block;
+      width: 33.33%;
+      border-bottom: 2px solid transparent;;
+      text-align: center;
+      height: 30px;
+      line-height: 30px;
+    }
+
+    .header [data-active=true] {
+      color: #f00;
+      border-color: #f00;
+    }
+
+    .body .ng-widget-tab {
+      border: 1px solid #00f;
+      padding: 20px;
+    }
+
+    .body [data-active] {
+      display: none;
+    }
+
+    .body [data-active=true] {
+      display: block;
+    }
+  </style>
+</head>
+<body ng-controller="MainCtrl" ng-cloak>
+<nx-tabs>
+  <nx-tab title="First Tab">
+    <div>This is the content of the first tab.</div>
+  </nx-tab>
+  <nx-tab title="Second Tab">
+    <div>This is the content of the second tab.</div>
+  </nx-tab>
+</nx-tabs>
+
+<script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="../dist/js/angular-number-spinner.js"></script>
+<script type="text/javascript">
+  var TestModule = angular.module('TestApp', ['nx.widget'])
+    .controller('MainCtrl', function ($scope) {
+      $scope.activeIndex = 2;
+      $scope.items = [
+        {
+          title: 'Tab1',
+          active: true
+        },
+        {
+          title: 'Tab2',
+          active: false
+        },
+        {
+          title: 'Tab3',
+          active: false
+        }
+      ];
+
+      $scope.items1 = [
+        {
+          content: 'content1',
+          active: true
+        },
+        {
+          content: 'content2',
+          active: false
+        },
+        {
+          content: 'content3',
+          active: false
+        }
+      ];
+
+
+    });
+</script>
+</body>
+</html>
