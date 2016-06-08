@@ -2,6 +2,4 @@
 AngularJS directive number spinner.
 
 ##usage:
-
-
-##resources:
++ https://github.com/afeiship/angular-number-spinner/blob/master/test/test.html
