@@ -1,2 +1,49 @@
 /**number-spinner Start**/
+.nx-widget-number-spinner {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  height: 30px;
+  max-width: 120px;
+  vertical-align: middle;
+}
+
+.nx-widget-number-spinner > * {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.nx-widget-number-spinner > *:focus {
+  outline: none;
+}
+
+.nx-widget-number-spinner .btn {
+  top: 0;
+  position: absolute;
+  width: 30px;
+  border-radius: 100px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+.nx-widget-number-spinner .btn:active {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.nx-widget-number-spinner .btn.plus {
+  left: 0;
+}
+
+.nx-widget-number-spinner .btn.minus {
+  right: 0;
+}
+
+.nx-widget-number-spinner input {
+  margin: 0 30px;
+  text-align: center;
+  width: calc(100% - 30px*2);
+}
+
 /**number-spinner  End**/

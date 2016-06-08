@@ -5,36 +5,28 @@
     .directive('nxNumberSpinner', [function ($scope) {
       return {
         restrict: 'E',
-        transclude: true,
         scope: {
-          cssClass: '@'
+          cssClass: '@',
+          value: '='
         },
-        controller: ["$scope", function ($scope) {
-          var items = $scope.items = [];
+        controller: ['$scope', function ($scope) {
+          $scope.plus = plus;
+          $scope.minus = minus;
+          $scope.value = $scope.value || 0;
 
-          $scope.select = function (item) {
-            angular.forEach(items, function (item) {
-              item.selected = false;
-            });
-            item.selected = true;
-          };
+          function plus() {
+            $scope.value++;
+          }
 
-          this.addPane = function (pane) {
-            if (items.length == 0) {
-              $scope.select(pane);
-            }
-            items.push(pane);
-          };
+          function minus() {
+            $scope.value--;
+          }
         }],
-        template: '<div class="ng-widget-tabs {{cssClass}}">' +
-        '<ul class="tab-hd">' +
-        '<li class="tab-hd-item" ng-repeat="item in items" data-active="{{item.selected}}">' +
-        '<a href="javascript:;" ng-click="select(item)">{{item.title}}</a>' +
-        '</li>' +
-        '</ul>' +
-        '<div class="tab-bd" ng-transclude></div>' +
-        '</div>',
-        replace: true
+        template: '<div class="nx-widget-number-spinner {{cssClass}}">' +
+        '<button class="btn plus" ng-click="plus()">+</button>' +
+        '<input class="value" ng-model="value" type="tel">' +
+        '<button class="btn minus" ng-click="minus()">-</button>' +
+        '</div>'
       };
 
     }]);
