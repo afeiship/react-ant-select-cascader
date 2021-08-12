@@ -12,12 +12,7 @@ npm install -S @jswork/react-ant-select-cascader
 ```
 
 ## properties
-| Name      | Type   | Required | Default | Description                           |
-| --------- | ------ | -------- | ------- | ------------------------------------- |
-| className | string | false    | -       | The extended className for component. |
-| value     | object | false    | null    | Default value.                        |
-| onChange  | func   | false    | noop    | The change handler.                   |
-
+__GENERATE_DOCS__
 
 ## usage
 1. import css
@@ -32,23 +27,7 @@ npm install -S @jswork/react-ant-select-cascader
   ```
 2. import js
   ```js
-  import React from 'react';
-  import ReactAntSelectCascader from '../@jswork/boilerplate-react-component';
-  import styled from 'styled-components';
-
-  const Container = styled.div`
-    width: 80%;
-    margin: 30px auto 0;
-  `;
-
-  export default (props: any) => {
-    return (
-      <Container>
-        <ReactAntSelectCascader />
-      </Container>
-    );
-  };
-
+__GENERATE_DAPP__
   ```
 
 ## license
