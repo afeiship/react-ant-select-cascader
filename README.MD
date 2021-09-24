@@ -11,14 +11,6 @@
 npm install -S @jswork/react-ant-select-cascader
 ```
 
-## properties
-| Name      | Type   | Required | Default | Description                           |
-| --------- | ------ | -------- | ------- | ------------------------------------- |
-| className | string | false    | -       | The extended className for component. |
-| value     | object | false    | null    | Default value.                        |
-| onChange  | func   | false    | noop    | The change handler.                   |
-
-
 ## usage
 1. import css
   ```scss
@@ -33,7 +25,7 @@ npm install -S @jswork/react-ant-select-cascader
 2. import js
   ```js
   import React from 'react';
-  import ReactAntSelectCascader from '../@jswork/boilerplate-react-component';
+  import ReactAntSelectCascader from '@jswork/boilerplate-react-component';
   import styled from 'styled-components';
 
   const Container = styled.div`
@@ -50,6 +42,9 @@ npm install -S @jswork/react-ant-select-cascader
   };
 
   ```
+
+## preview
+- https://afeiship.github.io/boilerplate-react-component/
 
 ## license
 Code released under [the MIT license](https://github.com/afeiship/react-ant-select-cascader/blob/master/LICENSE.txt).

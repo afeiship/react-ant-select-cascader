@@ -11,24 +11,24 @@
 npm install -S @jswork/react-ant-select-cascader
 ```
 
-## properties
-__GENERATE_DOCS__
-
 ## usage
 1. import css
   ```scss
-  @import "~@jswork/boilerplate-react-component/dist/style.css";
+  @import "~@jswork/react-ant-select-cascader/dist/style.css";
 
   // or use sass
-  @import "~@jswork/boilerplate-react-component/dist/style.scss";
+  @import "~@jswork/react-ant-select-cascader/dist/style.scss";
 
   // customize your styles:
-  $boilerplate-react-component-options: ()
+  $react-ant-select-cascader-options: ()
   ```
 2. import js
   ```js
 __GENERATE_DAPP__
   ```
+
+## preview
+- https://afeiship.github.io/react-ant-select-cascader/
 
 ## license
 Code released under [the MIT license](https://github.com/afeiship/react-ant-select-cascader/blob/master/LICENSE.txt).
