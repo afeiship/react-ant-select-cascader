@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import filterProps from '@jswork/filter-react-props';
 import ReactList from '@jswork/react-list';
 import ReactAntSelect from '@jswork/react-ant-select';
+import { Simulate } from 'react-dom/test-utils';
+import load = Simulate.load;
 
 const CLASS_NAME = 'react-ant-select-cascader';
 
@@ -32,6 +34,7 @@ export default class ReactAntSelectCascader extends Component<any> {
   };
 
   state = {
+    loading: this.props.query.map(() => false),
     value: this.props.value,
     options: this.props.query.map(() => [])
   };
@@ -46,20 +49,28 @@ export default class ReactAntSelectCascader extends Component<any> {
 
   componentDidMount() {
     const { query } = this.props;
-    const { options } = this.state;
-    query[0](null).then(({ items }) => {
-      options[0] = items;
-      this.setState({ options });
-    });
+    const { options, loading } = this.state;
+    loading[0] = true;
+    this.setState({ loading });
+    query[0](null)
+      .then(({ items }) => {
+        options[0] = items;
+        this.setState({ options });
+      })
+      .finally(() => {
+        loading[0] = false;
+        this.setState({ loading });
+      });
   }
 
   handleTemplate = ({ item, index }) => {
-    let _value = this.state.value;
+    const { value, loading } = this.state;
     return (
       <ReactAntSelect
         key={index}
         items={item}
-        value={_value[index]}
+        loading={loading[index]}
+        value={value[index]}
         onChange={this.handleItemChange.bind(this, index)}
         style={{ width: 200 }}
       />
@@ -68,27 +79,34 @@ export default class ReactAntSelectCascader extends Component<any> {
 
   handleItemChange = (inIndex, inEvent) => {
     const { query, onChange } = this.props;
-    const { options } = this.state;
+    const { options, loading } = this.state;
     const { value } = inEvent.target;
     const api = query[inIndex + 1];
     const _value = this.state.value;
-    _value.forEach((_, index) => index > inIndex && delete _value[index]);
+    _value.forEach((_, index) => index > inIndex && _value.splice(index, 1));
     _value[inIndex] = value;
 
-    this.setState({ value: _value });
-    onChange({ target: { value: _value } });
+    api && (loading[inIndex] = true);
+    const target = { value: _value };
+
+    this.setState({ ...target, loading });
+    onChange({ target });
 
     if (api) {
-      api(value).then(({ items }) => {
-        options[inIndex + 1] = items;
-        this.setState({ options });
-      });
+      api(value)
+        .then(({ items }) => {
+          options[inIndex + 1] = items;
+          this.setState({ options });
+        })
+        .finally(() => {
+          loading[inIndex] = false;
+          this.setState({ loading });
+        });
     }
   };
 
   render() {
     const { className, value, onChange, ...props } = this.props;
-    const theProps = filterProps(props);
     const { options } = this.state;
 
     return (
@@ -98,7 +116,7 @@ export default class ReactAntSelectCascader extends Component<any> {
         items={options}
         template={this.handleTemplate}
         className={classNames(CLASS_NAME, className)}
-        {...theProps}
+        {...props}
       />
     );
   }
