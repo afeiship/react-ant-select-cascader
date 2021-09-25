@@ -112,8 +112,8 @@ export default class ReactAntSelectCascader extends Component<ReactAntSelectCasc
     const target = { value: _value };
     _value.forEach((_, index) => index > inIndex && _value.splice(index, 1));
     _value[inIndex] = value;
-    this.setState({ ...target });
     onChange!({ target });
+    this.setState(target);
     this.doQuery(inIndex + 1, value);
   };
 
