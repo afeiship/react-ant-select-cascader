@@ -27,6 +27,10 @@ export type ReactAntSelectCascaderProps = {
    */
   value?: any[];
   /**
+   * The react list node name.
+   */
+  nodeName?: any;
+  /**
    * The change handler.
    */
   onChange?: Function;
