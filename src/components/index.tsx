@@ -118,7 +118,7 @@ export default class ReactAntSelectCascader extends Component<ReactAntSelectCasc
   };
 
   render() {
-    const { className, value, onChange, template, ...props } = this.props;
+    const { className, value, onChange, template, query, ...props } = this.props;
     const { itemsList } = this.state;
 
     return (
