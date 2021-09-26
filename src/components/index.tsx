@@ -56,16 +56,20 @@ export default class ReactAntSelectCascader extends Component<ReactAntSelectCasc
     template: DEFAULT_TEMPLATE
   };
 
-  state = {
-    loadingList: this.props.query.map(() => false),
-    value: this.props.value,
-    itemsList: this.props.query.map(() => [])
-  };
+  state = this.initialState;
+
+  get initialState() {
+    return {
+      loadingList: this.props.query.map(() => false),
+      value: this.props.value?.slice(0),
+      itemsList: this.props.query.map(() => [])
+    };
+  }
 
   shouldComponentUpdate(nextProps: Readonly<any>): boolean {
     const { value } = nextProps;
     if (value !== this.state.value) {
-      this.setState({ value });
+      this.state.value = value.slice(0);
     }
     return true;
   }
