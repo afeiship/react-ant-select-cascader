@@ -1,7 +1,7 @@
 {
   "name": "@jswork/react-ant-select-cascader",
   "boilerplate": "react-ant-select-cascader",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Cascader based on ant select.",
   "license": "MIT",
   "main": "dist/index.js",
