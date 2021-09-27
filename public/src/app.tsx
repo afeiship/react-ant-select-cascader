@@ -22,7 +22,7 @@ const Item = styled.div`
 const headers = {
   'Content-Type': 'application/json',
   'authorization':
-    'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1dHlwIjoiTERBUF9VU0VSIiwiYXVkIjpbImFvc3AtZ2F0ZXdheSIsIml5eS1hcGkiLCJhb3QiLCJ2d29wcyIsIm5vdGlmaWNhdGlvbi1jZW50ZXItYWRtaW4iLCJhb2MtYWRtaW4iXSwic3ViIjoiYXJpYy56aGVuZyIsImlzcyI6ImFsbzcuY29tIiwiZXhwIjoxNjMyNjkwNTcyLCJqdGkiOiI1OGI4YmNhNi04Yzg2LTRiYjAtOTNiMS1iNjc5MmE3MTY4NjYifQ.bNoLrZiNe3l3hLdl88i5exPekZmK72Jc3H_d1OEwrL1PnFdeR9fkKKi-61tfc0a0qp8TMuJTwTITdaZ3IXjCW1_XmxumPQf561y8_bE109XEJ42v0s9gvcvujDPjRkmKxz3rZfLcAdQ52dFK_rLo8riiQSzVOex11oDtB0Avp1A',
+    'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1dHlwIjoiTERBUF9VU0VSIiwiYXVkIjpbImFvc3AtZ2F0ZXdheSIsIml5eS1hcGkiLCJhb3QiLCJ2d29wcyIsIm5vdGlmaWNhdGlvbi1jZW50ZXItYWRtaW4iLCJhb2MtYWRtaW4iXSwic3ViIjoiYXJpYy56aGVuZyIsImlzcyI6ImFsbzcuY29tIiwiZXhwIjoxNjMyNzQ2MDY1LCJqdGkiOiJkYjMwNmEzZi02MmZhLTQzZjktODM1OC1kMzIzY2Y2ZDc3MWEifQ.C1GicMbSkie2fGKUbzKTej-oKvHeMSLQ2TrSXm4SfXbEgTnkw0TSopyIonQZm_C5WskC97VUHJSlTCthfBzsBAR-DXGHM5MzNbhzb36b1kZk6SHJlBESoPDaCtu2QJYhlI971JxC-j5oXRC3BF-AIisFdHcYGEUWsPI_kRK2H7I',
   'baseinfo': '0,6847'
 };
 
@@ -68,7 +68,7 @@ export default (props: any) => {
           return (
             <Item key={index}>
               <strong>{labels[index]}</strong>
-              <ReactAntSelect style={{ width: 200 }} {...props} />
+              <ReactAntSelect allowClear style={{ width: 200 }} {...props} />
             </Item>
           );
         }}

@@ -5,6 +5,13 @@ import ReactList from '@jswork/react-list';
 import ReactAntSelect from '@jswork/react-ant-select';
 
 const CLASS_NAME = 'react-ant-select-cascader';
+const remove = (items, fn) => {
+  items.forEach((item, index) => {
+    if (fn(item, index)) {
+      items.splice(index, 1);
+    }
+  });
+};
 
 interface TemplateArgs {
   index: number;
@@ -118,8 +125,9 @@ export default class ReactAntSelectCascader extends Component<ReactAntSelectCasc
     const { value } = inEvent.target;
     const _value = this.state.value!;
     const target = { value: _value };
-    _value.forEach((_, index) => index > inIndex && _value.splice(index, 1));
+    remove(_value, (_, index) => index > inIndex);
     _value[inIndex] = value;
+    remove(_value, (item) => typeof item === 'undefined');
     onChange!({ target });
     this.setState(target);
     this.doQuery(inIndex + 1, value);
